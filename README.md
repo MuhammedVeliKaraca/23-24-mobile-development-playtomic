@@ -1,2 +1,2 @@
-# 23-24-mobile-developement-playtomic
-Mobile Developement Playtomic
+# 23-24-mobile-development-playtomic
+Mobile Development Playtomic
