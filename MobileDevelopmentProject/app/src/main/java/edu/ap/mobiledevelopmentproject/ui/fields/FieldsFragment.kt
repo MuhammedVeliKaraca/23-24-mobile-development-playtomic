@@ -4,39 +4,42 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import edu.ap.mobiledevelopmentproject.R
 import edu.ap.mobiledevelopmentproject.databinding.FragmentFieldsBinding
+import edu.ap.mobiledevelopmentproject.ui.matches.MatchesFragment
 
 class FieldsFragment : Fragment() {
 
-    private var _binding: FragmentFieldsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val fieldsViewModel =
-            ViewModelProvider(this).get(FieldsViewModel::class.java)
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_fields, container, false)
 
-        _binding = FragmentFieldsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val matchesFragment = MatchesFragment()
 
-        val textView: TextView = binding.textDashboard
-        fieldsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val button = view.findViewById<Button>(R.id.button)
+        val input = view.findViewById<EditText>(R.id.text)
+
+        button.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("text", input.text.toString())
+            matchesFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.mainContainer, matchesFragment)
+                    .commit()
+            }
+
         }
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return view
     }
 }

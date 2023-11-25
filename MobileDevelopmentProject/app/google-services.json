@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "267238975970",
+    "project_id": "playtomic-9c4f5",
+    "storage_bucket": "playtomic-9c4f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267238975970:android:ff3cf3fd461a33902731bb",
+        "android_client_info": {
+          "package_name": "edu.ap.mobiledevelopmentproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQtFrx-bGfdz6XWdBAlwW0dp_x9jcWnIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,39 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import edu.ap.mobiledevelopmentproject.R
 import edu.ap.mobiledevelopmentproject.databinding.FragmentMatchesBinding
+import org.w3c.dom.Text
 
 class MatchesFragment : Fragment() {
 
-    private var _binding: FragmentMatchesBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val matchesViewModel =
-            ViewModelProvider(this).get(MatchesViewModel::class.java)
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_matches, container, false)
 
-        _binding = FragmentMatchesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val text = view.findViewById<TextView>(R.id.text2)
+        val data = arguments
 
-        val textView: TextView = binding.textHome
-        matchesViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        text.text = data?.getString("text")
+
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
