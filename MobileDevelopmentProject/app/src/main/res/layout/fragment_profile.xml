@@ -33,13 +33,13 @@
 
             <ImageView
                 android:id="@+id/profile_picture"
-                android:layout_width="183dp"
-                android:layout_height="159dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="171dp"
+                android:layout_height="151dp"
+                android:layout_marginStart="4dp"
                 android:src="@drawable/profile_picture"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="102dp" />
+                tools:layout_editor_absoluteY="91dp" />
 
             <TextView
                 android:id="@+id/name"
@@ -50,10 +50,10 @@
                 android:textSize="28dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.604"
+                app:layout_constraintHorizontal_bias="0.764"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="139dp" />
+                tools:layout_editor_absoluteY="131dp" />
 
             <TextView
                 android:id="@+id/description"
@@ -61,8 +61,103 @@
                 android:layout_height="wrap_content"
                 android:text="Plays in Mortsel, Belgium"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="208dp"
-                tools:layout_editor_absoluteY="200dp" />
+                tools:layout_editor_absoluteX="175dp"
+                tools:layout_editor_absoluteY="177dp" />
+
+            <LinearLayout
+                android:layout_width="83dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="28dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="243dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/matchesTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Matches"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="243dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/followersTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Followers"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.883"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="246dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/followingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Following"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="335dp"
+                android:layout_height="40dp"
+                android:text="Edit profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/title2"
@@ -73,10 +168,10 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.116"
+                app:layout_constraintHorizontal_bias="0.066"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="298dp" />
+                tools:layout_editor_absoluteY="392dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button"
@@ -84,62 +179,14 @@
                 android:layout_height="60dp"
                 android:text="Best hand\nFreehand"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.978"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="345dp" />
+                tools:layout_editor_absoluteY="446dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
-                android:layout_width="458dp"
-                android:layout_height="60dp"
-                android:text="Court position\nForehand"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button3"
-                android:layout_width="458dp"
-                android:layout_height="60dp"
-                android:text="Match type\nNot set"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="608dp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button4"
-                android:layout_width="458dp"
-                android:layout_height="60dp"
-                android:text="Preferred time to play\nNot set"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.604"
-                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </ScrollView>
-
-
-    <!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:layout_editor_absoluteY="91dp">-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="28dp"-->
-<!--            android:text="Button" />-->
-<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
