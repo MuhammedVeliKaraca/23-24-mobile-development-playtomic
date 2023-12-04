@@ -67,13 +67,13 @@
             <LinearLayout
                 android:layout_width="83dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="164dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="243dp">
+                tools:layout_editor_absoluteY="232dp">
 
                 <TextView
                     android:id="@+id/matchesTextView"
@@ -88,63 +88,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Matches"
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="44dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="243dp">
-
-                <TextView
-                    android:id="@+id/followersTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="205"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Followers"
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.883"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="246dp">
-
-                <TextView
-                    android:id="@+id/followingTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="81"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Following"
                     android:textColor="#666666"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -222,8 +165,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_toEndOf="@id/emoji1"
                         android:text="Best Hand"
-                    <!--                    android:layout_centerVertical="true"-->
-                    android:textSize="18sp"/>
+                        android:textSize="18sp"/>
                     <!-- Text -->
                     <TextView
                         android:id="@+id/text1"
@@ -253,7 +195,7 @@
 
                     <!-- Emoji -->
                     <TextView
-                        android:id="@+id/emoji1"
+                        android:id="@+id/emoji2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -263,25 +205,24 @@
 
                     <!-- Title -->
                     <TextView
-                        android:id="@+id/title1"
+                        android:id="@+id/title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji2"
                         android:text="Court position"
-                    <!--                    android:layout_centerVertical="true"-->
-                    android:textSize="18sp"/>
+                        android:textSize="18sp"/>
                     <!-- Text -->
                     <TextView
-                        android:id="@+id/text1"
+                        android:id="@+id/text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/title1"
+                        android:layout_below="@id/title2"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="4dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji2"
                         android:text="Forehand"
                         android:textSize="16sp" />
 
@@ -301,7 +242,7 @@
 
                     <!-- Emoji -->
                     <TextView
-                        android:id="@+id/emoji1"
+                        android:id="@+id/emoji4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -311,25 +252,24 @@
 
                     <!-- Title -->
                     <TextView
-                        android:id="@+id/title1"
+                        android:id="@+id/title4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji4"
                         android:text="Preferred time to play"
-                    <!--                    android:layout_centerVertical="true"-->
-                    android:textSize="18sp"/>
+                        android:textSize="18sp"/>
                     <!-- Text -->
                     <TextView
-                        android:id="@+id/text1"
+                        android:id="@+id/text4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/title1"
+                        android:layout_below="@id/title4"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="4dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji4"
                         android:text="Not set"
                         android:textSize="16sp" />
 
@@ -349,7 +289,7 @@
 
                     <!-- Emoji -->
                     <TextView
-                        android:id="@+id/emoji1"
+                        android:id="@+id/emoji3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -359,25 +299,24 @@
 
                     <!-- Title -->
                     <TextView
-                        android:id="@+id/title1"
+                        android:id="@+id/title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji3"
                         android:text="Match type"
-                    <!--                    android:layout_centerVertical="true"-->
-                    android:textSize="18sp"/>
+                        android:textSize="18sp"/>
                     <!-- Text -->
                     <TextView
-                        android:id="@+id/text1"
+                        android:id="@+id/text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/title1"
+                        android:layout_below="@id/title3"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="4dp"
-                        android:layout_toEndOf="@id/emoji1"
+                        android:layout_toEndOf="@id/emoji3"
                         android:text="Not set"
                         android:textSize="16sp" />
 
