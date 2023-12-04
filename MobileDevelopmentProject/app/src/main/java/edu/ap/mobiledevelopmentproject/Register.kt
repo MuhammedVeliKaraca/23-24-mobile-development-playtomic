@@ -21,7 +21,7 @@ class Register : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var textView: TextView
 
-    public override fun onStart() {
+/*    public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
@@ -29,7 +29,7 @@ class Register : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-    }
+    }*/
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
