@@ -19,6 +19,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- Add an Edit Text for Name and Description -->
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your name"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your description"
+                android:visibility="gone" />
+
+            <!-- Add a Button to Save Changes -->
+            <Button
+                android:id="@+id/saveChangesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Changes"
+                android:visibility="gone" />
+
+            <!-- Add a Button to Cancel Changes -->
+            <Button
+                android:id="@+id/cancelChangesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel Changes"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -67,13 +98,13 @@
             <LinearLayout
                 android:layout_width="83dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="164dp"
+                android:layout_marginStart="204dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="232dp">
+                tools:layout_editor_absoluteY="208dp">
 
                 <TextView
                     android:id="@+id/matchesTextView"
