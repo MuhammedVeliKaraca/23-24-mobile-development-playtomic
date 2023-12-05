@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+//import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.FirebaseDatabase
 import edu.ap.mobiledevelopmentproject.R
 import edu.ap.mobiledevelopmentproject.databinding.FragmentProfileBinding
 
@@ -90,17 +90,17 @@ class ProfileFragment : Fragment() {
 
     private fun saveChangesToFirebase(userId: String, newName: String, newDescription: String) {
         try {
-            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-            val usersRef: DatabaseReference = database.getReference("users")
-
-            // Replace "userId" with the actual user ID
-            val userRef: DatabaseReference = usersRef.child(userId)
-
-            // Update user data
-            userRef.child("name").setValue(newName)
-            userRef.child("description").setValue(newDescription)
-
-            Log.d("ProfileFragment", "Changes saved to Firebase")
+//            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+//            val usersRef: DatabaseReference = database.getReference("users")
+//
+//            // Replace "userId" with the actual user ID
+//            val userRef: DatabaseReference = usersRef.child(userId)
+//
+//            // Update user data
+//            userRef.child("name").setValue(newName)
+//            userRef.child("description").setValue(newDescription)
+//
+//            Log.d("ProfileFragment", "Changes saved to Firebase")
         } catch (e: Exception) {
             Log.e("ProfileFragment", "Error saving changes to Firebase: ${e.message}")
         }
