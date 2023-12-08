@@ -8,11 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import edu.ap.mobiledevelopmentproject.R
-import edu.ap.mobiledevelopmentproject.databinding.FragmentFieldsBinding
 import edu.ap.mobiledevelopmentproject.ui.matches.MatchesFragment
 
 class FieldsFragment : Fragment() {
@@ -25,12 +21,13 @@ class FieldsFragment : Fragment() {
 
         val matchesFragment = MatchesFragment()
 
-        val button = view.findViewById<Button>(R.id.button)
         val input = view.findViewById<EditText>(R.id.text)
+        val button = view.findViewById<Button>(R.id.button)
 
         button.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("text", input.text.toString())
+            bundle.putString("duration", "90min")
             matchesFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction().apply {
