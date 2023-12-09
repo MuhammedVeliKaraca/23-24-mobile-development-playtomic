@@ -1,16 +1,18 @@
 package edu.ap.mobiledevelopmentproject
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+import java.util.Objects
 
 class Register : AppCompatActivity() {
 
@@ -21,15 +23,15 @@ class Register : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var textView: TextView
 
-/*    public override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val intent = Intent(this@Register, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }*/
+    /*    public override fun onStart() {
+            super.onStart()
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                val intent = Intent(this@Register, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }*/
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -68,7 +70,11 @@ class Register : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
+
+                        val user:User = User(email,password,"","","","","")
+                        FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
                         Toast.makeText(this@Register, "Account created.", Toast.LENGTH_SHORT).show()
+                        finish()
                     } else {
                         Toast.makeText(this@Register, "Account creation failed.", Toast.LENGTH_SHORT).show()
                     }

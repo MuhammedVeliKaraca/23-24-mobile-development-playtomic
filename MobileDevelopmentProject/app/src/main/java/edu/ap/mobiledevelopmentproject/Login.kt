@@ -20,15 +20,15 @@ class Login : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var textView: TextView
 
-/*    public override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val intent = Intent(this@Login, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }*/
+    /*    public override fun onStart() {
+            super.onStart()
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                val intent = Intent(this@Login, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -80,5 +80,13 @@ class Login : AppCompatActivity() {
                 }
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(FirebaseAuth.getInstance().currentUser!=null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
     }
 }
