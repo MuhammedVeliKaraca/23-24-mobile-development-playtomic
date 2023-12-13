@@ -1,14 +1,15 @@
 package edu.ap.mobiledevelopmentproject
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import edu.ap.mobiledevelopmentproject.ui.matches.MatchActivity2
 
 class SportsHallAdapter(private val context: Context, private val sportsHalls: List<SportsHall>) :
     RecyclerView.Adapter<SportsHallAdapter.ViewHolder>() {
@@ -21,17 +22,24 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sportsHall = sportsHalls[position]
 
-        // Set data to views
+        // put data into views
         holder.nameTextView.text = sportsHall.name
         holder.locationTextView.text = sportsHall.location
-        holder.lengthTextView.text = sportsHall.length
 
-        // Load image using Glide (you need to add the Glide dependency to your project)
+        // load image into view using Glide
         Glide.with(context)
             .load(sportsHall.image)
             .into(holder.imageView)
 
-        // You can set click listeners or perform additional operations here
+        holder.itemView.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                // send data to the next screen
+                val intent = Intent(context, MatchActivity2::class.java)
+                intent.putExtra("id", sportsHall.id)
+               view!!.context.startActivity(intent)
+            }
+
+        })
     }
 
     override fun getItemCount(): Int {
@@ -42,6 +50,5 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val nameTextView: TextView = itemView.findViewById(R.id.name)
         val locationTextView: TextView = itemView.findViewById(R.id.location)
-        val lengthTextView: TextView = itemView.findViewById(R.id.length)
     }
 }
