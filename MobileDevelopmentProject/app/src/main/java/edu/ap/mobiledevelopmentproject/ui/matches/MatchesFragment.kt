@@ -11,68 +11,67 @@ import android.widget.Spinner
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import edu.ap.mobiledevelopmentproject.R
+import edu.ap.mobiledevelopmentproject.SportsHall
+import edu.ap.mobiledevelopmentproject.SportsHallAdapter
 import java.util.Calendar
 import java.util.Locale
 
 class MatchesFragment : Fragment() {
-
-    private lateinit var timePicker: TimePicker
-    private lateinit var datePicker: DatePicker
-    private lateinit var bookButton: Button
-
+    lateinit var recyclerView:RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_matches, container, false)
 
-        // initialisation time picker
-        timePicker = view.findViewById(R.id.timePicker)
-        timePicker.setIs24HourView(true)
+        recyclerView = view.findViewById(R.id.recyclerview)
+        val layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView.layoutManager = layoutManager
+        val hallList = mutableListOf<SportsHall>() // Populate this list from Firebase onDataChange
 
-        // initialisation date picker
-        datePicker = view.findViewById(R.id.datePicker)
 
-        // initialisation location spinner
-        val spinner: Spinner = view.findViewById(R.id.spinner)
-        val locations = resources.getStringArray(R.array.locations_list)
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, locations)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
 
-        bookButton = view.findViewById(R.id.bookButton)
-        bookButton.setOnClickListener {
-            showConfirmation()
-        }
+        FirebaseDatabase.getInstance().getReference().child("Halls")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (ds in snapshot.children) {
+                        val id = ds.key.toString()
+                        val name = ds.child("name").getValue().toString()
+                        val image = ds.child("image").getValue().toString()
+                        val location = ds.child("location").getValue().toString()
+                        val length = ds.child("length").getValue().toString()
+
+                        // Create a Hall instance and add it to the list
+                        val hall = SportsHall(id,name,image,location,length)
+                       hallList.add(hall)
+
+                    }
+
+                    val hallsAdapter = SportsHallAdapter(requireActivity(), hallList)
+                    recyclerView.adapter = hallsAdapter
+
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+
+
 
         return view
+
     }
-
-    private fun showConfirmation() {
-        val selectedMonth = datePicker.month + 1
-        val selectedDay = datePicker.dayOfMonth
-
-        val startHour = timePicker.hour
-        val startMinute = timePicker.minute
-
-        val calendar = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, startHour)
-            set(Calendar.MINUTE, startMinute)
-            add(Calendar.MINUTE, 90) // Adding 90 minutes
-        }
-
-        val endHour = calendar.get(Calendar.HOUR_OF_DAY)
-        val endMinute = calendar.get(Calendar.MINUTE)
-
-        val location = requireView().findViewById<Spinner>(R.id.spinner).selectedItem.toString()
-        val startTime = String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute)
-        val endTime = String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute)
-        val date = String.format(Locale.getDefault(), "%02d/%02d", selectedDay, selectedMonth)
-
-        val confirmationText = "You booked at $location, the $date at $startTime until $endTime"
-        Toast.makeText(requireContext(), confirmationText, Toast.LENGTH_SHORT).show()
-    }
-
 }
