@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "267238975970",
-    "project_id": "playtomic-9c4f5",
-    "storage_bucket": "playtomic-9c4f5.appspot.com"
+    "project_number": "289937178353",
+    "firebase_url": "https://playtomic-309af-default-rtdb.firebaseio.com",
+    "project_id": "playtomic-309af",
+    "storage_bucket": "playtomic-309af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:267238975970:android:ff3cf3fd461a33902731bb",
+        "mobilesdk_app_id": "1:289937178353:android:b3e35640b219b912133350",
         "android_client_info": {
           "package_name": "edu.ap.mobiledevelopmentproject"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCQtFrx-bGfdz6XWdBAlwW0dp_x9jcWnIA"
+          "current_key": "AIzaSyDlUUnASGWl_u0fTiyA5wA82Xn_Px6ugUs"
         }
       ],
       "services": {
