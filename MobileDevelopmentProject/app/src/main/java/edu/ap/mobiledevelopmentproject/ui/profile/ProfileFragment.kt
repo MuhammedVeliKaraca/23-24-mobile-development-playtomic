@@ -19,10 +19,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import edu.ap.mobiledevelopmentproject.EditProfileActivity
+import edu.ap.mobiledevelopmentproject.Login
 import edu.ap.mobiledevelopmentproject.R
 
 class ProfileFragment : Fragment() {
-
     var firstname: String = ""
     var lastname: String = ""
     var dob: String = ""
@@ -35,10 +35,15 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        val edtprofile = view.findViewById<Button>(R.id.edtprofile)
 
+//        val imageView = view.findViewById<ImageView>(R.id.imageView)
+//        val base64Image = "yourBase64EncodedImage"
+//        val bitmap = decodeBase64ToBitmap(base64Image)
+//        imageView.setImageBitmap(bitmap)
+
+        val edtprofile = view.findViewById<Button>(R.id.edtprofile)
+        // Assuming you have a button with the ID "btnOpenSecondActivity"
         edtprofile.setOnClickListener {
             val intent = Intent(requireActivity(), EditProfileActivity::class.java)
             intent.putExtra("firstname",firstname)
@@ -51,6 +56,14 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
 
+        val logout = view.findViewById<Button>(R.id.logout)
+        logout.setOnClickListener({
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(requireActivity(),Login::class.java))
+
+        })
+
+
         val tvfirstname = view.findViewById<TextView>(R.id.firstname)
         val tvlastname = view.findViewById<TextView>(R.id.lastname)
         val tvdob = view.findViewById<TextView>(R.id.dob)
@@ -62,21 +75,33 @@ class ProfileFragment : Fragment() {
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    firstname = snapshot.child("firstname").getValue(String::class.java)!!!!;
-                    lastname = snapshot.child("lastname").getValue(String::class.java)!!!!;
-                    dob = snapshot.child("dob").getValue(String::class.java)!!!!; // date of birth
-                    gender = snapshot.child("gender").getValue(String::class.java)!!!!;
-                    email = snapshot.child("email").getValue(String::class.java)!!!!;
-                    profilelink = snapshot.child("profilelink").getValue(String::class.java)!!!!;
-                    password = snapshot.child("password").getValue(String::class.java)!!!!;
+                    firstname =
+                        snapshot.child("firstname").getValue(String::class.java)!!!!;
+                    lastname =
+                        snapshot.child("lastname").getValue(String::class.java)!!!!;
+                    dob =
+                        snapshot.child("dob").getValue(String::class.java)!!!!;
+                    gender =
+                        snapshot.child("gender").getValue(String::class.java)!!!!;
+                    email =
+                        snapshot.child("email").getValue(String::class.java)!!!!;
+                    profilelink =
+                        snapshot.child("profilelink").getValue(String::class.java)!!!!;
+                    password =
+                        snapshot.child("password").getValue(String::class.java)!!!!;
+
 
                     tvfirstname.setText(firstname)
                     tvlastname.setText(lastname)
                     tvdob.setText(dob)
                     tvgender.setText(gender)
                     tvemail.setText(email)
-
-                    Glide.with(requireActivity()).load(profilelink).centerCrop().placeholder(R.drawable.ic_profile_icon_24).into(tvimageview);
+                    Glide
+                        .with(requireActivity())
+                        .load(profilelink)
+                        .centerCrop()
+                        .placeholder(R.drawable.ic_profile_icon_24)
+                        .into(tvimageview);
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -87,6 +112,11 @@ class ProfileFragment : Fragment() {
 
 
         return view
+    }
+
+    fun decodeBase64ToBitmap(encodedImage: String): Bitmap? {
+        val decodedBytes = Base64.decode(encodedImage, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 
 }

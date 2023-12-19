@@ -190,4 +190,14 @@
         android:background="@color/purple_200"
         android:layout_margin="10dp"
         />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:background="@android:color/holo_red_dark"
+        android:layout_margin="10dp"
+        />
 </LinearLayout>
