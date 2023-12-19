@@ -42,6 +42,10 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        val back:ImageView? = findViewById(R.id.back)
+        back!!.setOnClickListener {
+            finish()
+        }
         firstname = intent.getStringExtra("firstname")!!
         lastname = intent.getStringExtra("lastname")!!
         gender = intent.getStringExtra("gender")!!

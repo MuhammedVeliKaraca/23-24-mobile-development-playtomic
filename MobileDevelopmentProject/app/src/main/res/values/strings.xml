@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Playtomic</string>
-    <string name="title_matches">Courts</string>
-    <string name="title_fields">Matches</string>
+    <string name="title_matches">Matches</string>
+    <string name="title_fields">Fields</string>
     <string name="title_profile">Profile</string>
     <string name="login">Login</string>
     <string name="email">Email</string>

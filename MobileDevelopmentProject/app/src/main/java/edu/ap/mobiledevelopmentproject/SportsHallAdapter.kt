@@ -22,18 +22,20 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sportsHall = sportsHalls[position]
 
-        // put data into views
+        // Set data to views
         holder.nameTextView.text = sportsHall.name
         holder.locationTextView.text = sportsHall.location
 
-        // load image into view using Glide
+        // Load image using Glide (you need to add the Glide dependency to your project)
         Glide.with(context)
             .load(sportsHall.image)
             .into(holder.imageView)
 
+        // You can set click listeners or perform additional operations here
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                // send data to the next screen
+                // Do some work here
+                // Pass the data to the next screen (replace NextActivity::class.java with your target activity)
                 val intent = Intent(context, MatchActivity2::class.java)
                 intent.putExtra("id", sportsHall.id)
                view!!.context.startActivity(intent)

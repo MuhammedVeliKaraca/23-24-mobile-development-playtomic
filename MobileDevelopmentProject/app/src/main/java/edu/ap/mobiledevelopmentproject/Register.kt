@@ -72,7 +72,7 @@ class Register : AppCompatActivity() {
                     if (task.isSuccessful) {
 
                         val user:User = User(email,password,"","","","","")
-                        FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
+FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
                         Toast.makeText(this@Register, "Account created.", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
