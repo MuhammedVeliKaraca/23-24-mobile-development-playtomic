@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Playtomic</string>
-    <string name="title_matches">Matches</string>
-    <string name="title_fields">Fields</string>
+    <string name="title_matches">Courts</string>
+    <string name="title_fields">Matches</string>
     <string name="title_profile">Profile</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="password">Azerty</string>
     <string name="register">Register</string>
     <string name="click_to_login">Click to login</string>
     <string name="click_to_register">Click to register</string>
