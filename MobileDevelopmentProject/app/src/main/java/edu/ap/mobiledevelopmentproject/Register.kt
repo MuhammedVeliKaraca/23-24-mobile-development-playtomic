@@ -74,6 +74,8 @@ class Register : AppCompatActivity() {
                         val user:User = User(email,password,"","","","","")
 FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
                         Toast.makeText(this@Register, "Account created.", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@Register, Login::class.java)
+                        startActivity(intent)
                         finish()
                     } else {
                         Toast.makeText(this@Register, "Account creation failed.", Toast.LENGTH_SHORT).show()
