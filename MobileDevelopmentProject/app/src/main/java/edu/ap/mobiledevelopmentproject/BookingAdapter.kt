@@ -16,10 +16,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import edu.ap.mobiledevelopmentproject.ui.fields.FieldActivity
 import edu.ap.mobiledevelopmentproject.ui.matches.MatchActivity2
 
-class SportsHallAdapter(private val context: Context, private val sportsHalls: List<SportsHall>) :
-    RecyclerView.Adapter<SportsHallAdapter.ViewHolder>() {
+class BookingAdapter(private val context: Context, private val booking: List<SportsHall>) :
+    RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.halls_design, parent, false)
@@ -27,20 +28,19 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val sportsHall = sportsHalls[position]
+        val book = booking[position]
 
         // Set data to views
-        holder.nameTextView.text = sportsHall.name
-        holder.locationTextView.text = sportsHall.location
+        holder.nameTextView.text = book.name
+        holder.locationTextView.text = book.location
 
         // Load image using Glide (you need to add the Glide dependency to your project)
         Glide.with(context)
-            .load(sportsHall.image)
+            .load(book.image)
             .into(holder.imageView)
 
         if (FirebaseAuth.getInstance().currentUser != null) {
             FirebaseDatabase.getInstance().getReference().child("Booking")
-                .orderByChild("userid").equalTo(FirebaseAuth.getInstance().currentUser!!.uid)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for (ds: DataSnapshot in snapshot.children) {
@@ -55,7 +55,7 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
                             val field = ds.child("field").getValue(String::class.java)
 
 
-                            if (bookingid.equals(sportsHall.id.toString())) {
+                            if (bookingid.equals(book.id.toString())) {
 
 
                                 val newColor =
@@ -111,14 +111,13 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
 
         }
 
-
         // You can set click listeners or perform additional operations here
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 // Do some work here
                 // Pass the data to the next screen (replace NextActivity::class.java with your target activity)
-                val intent = Intent(context, MatchActivity2::class.java)
-                intent.putExtra("id", sportsHall.id)
+                val intent = Intent(context, FieldActivity::class.java)
+                intent.putExtra("id", book.id)
                view!!.context.startActivity(intent)
             }
 
@@ -126,21 +125,21 @@ class SportsHallAdapter(private val context: Context, private val sportsHalls: L
     }
 
     override fun getItemCount(): Int {
-        return sportsHalls.size
+        return booking.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val nameTextView: TextView = itemView.findViewById(R.id.name)
         val locationTextView: TextView = itemView.findViewById(R.id.location)
-          var card900: MaterialCardView  = itemView.findViewById(R.id.card900)
-          var card1030: MaterialCardView  = itemView.findViewById(R.id.card1030)
-          var card1200: MaterialCardView  = itemView.findViewById(R.id.card1200)
-          var card1330: MaterialCardView  = itemView.findViewById(R.id.card1330)
-          var card1500: MaterialCardView  = itemView.findViewById(R.id.card1500)
-          var card1630: MaterialCardView  = itemView.findViewById(R.id.card1630)
-          var card1800: MaterialCardView  = itemView.findViewById(R.id.card1800)
-          var card1930: MaterialCardView  = itemView.findViewById(R.id.card1930)
-          var card2100: MaterialCardView  = itemView.findViewById(R.id.card2100)
+        var card900: MaterialCardView = itemView.findViewById(R.id.card900)
+        var card1030: MaterialCardView = itemView.findViewById(R.id.card1030)
+        var card1200: MaterialCardView = itemView.findViewById(R.id.card1200)
+        var card1330: MaterialCardView = itemView.findViewById(R.id.card1330)
+        var card1500: MaterialCardView = itemView.findViewById(R.id.card1500)
+        var card1630: MaterialCardView = itemView.findViewById(R.id.card1630)
+        var card1800: MaterialCardView = itemView.findViewById(R.id.card1800)
+        var card1930: MaterialCardView = itemView.findViewById(R.id.card1930)
+        var card2100: MaterialCardView = itemView.findViewById(R.id.card2100)
     }
 }
