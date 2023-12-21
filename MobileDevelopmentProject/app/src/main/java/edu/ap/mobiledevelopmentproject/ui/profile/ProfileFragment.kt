@@ -60,6 +60,7 @@ class ProfileFragment : Fragment() {
         logout.setOnClickListener({
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(requireActivity(),Login::class.java))
+            requireActivity().finish()
 
         })
 
@@ -71,43 +72,45 @@ class ProfileFragment : Fragment() {
         val tvemail = view.findViewById<TextView>(R.id.email)
         val tvimageview = view.findViewById<ImageView>(R.id.imageview)
 
-        FirebaseDatabase.getInstance().getReference().child("User")
-            .child(FirebaseAuth.getInstance().currentUser!!.uid)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    firstname =
-                        snapshot.child("firstname").getValue(String::class.java)!!!!;
-                    lastname =
-                        snapshot.child("lastname").getValue(String::class.java)!!!!;
-                    dob =
-                        snapshot.child("dob").getValue(String::class.java)!!!!;
-                    gender =
-                        snapshot.child("gender").getValue(String::class.java)!!!!;
-                    email =
-                        snapshot.child("email").getValue(String::class.java)!!!!;
-                    profilelink =
-                        snapshot.child("profilelink").getValue(String::class.java)!!!!;
-                    password =
-                        snapshot.child("password").getValue(String::class.java)!!!!;
+        if(FirebaseAuth.getInstance().currentUser!=null){
+            FirebaseDatabase.getInstance().getReference().child("User")
+                .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        firstname =
+                            snapshot.child("firstname").getValue(String::class.java)!!!!;
+                        lastname =
+                            snapshot.child("lastname").getValue(String::class.java)!!!!;
+                        dob =
+                            snapshot.child("dob").getValue(String::class.java)!!!!;
+                        gender =
+                            snapshot.child("gender").getValue(String::class.java)!!!!;
+                        email =
+                            snapshot.child("email").getValue(String::class.java)!!!!;
+                        profilelink =
+                            snapshot.child("profilelink").getValue(String::class.java)!!!!;
+                        password =
+                            snapshot.child("password").getValue(String::class.java)!!!!;
 
 
-                    tvfirstname.setText(firstname)
-                    tvlastname.setText(lastname)
-                    tvdob.setText(dob)
-                    tvgender.setText(gender)
-                    tvemail.setText(email)
-                    Glide
-                        .with(requireActivity())
-                        .load(profilelink)
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_profile_icon_24)
-                        .into(tvimageview);
-                }
+                        tvfirstname.setText(firstname)
+                        tvlastname.setText(lastname)
+                        tvdob.setText(dob)
+                        tvgender.setText(gender)
+                        tvemail.setText(email)
+                        Glide
+                            .with(requireActivity())
+                            .load(profilelink)
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_profile_icon_24)
+                            .into(tvimageview);
+                    }
 
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
+
+        }
 
 
 

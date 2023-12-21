@@ -32,58 +32,58 @@
         android:orientation="horizontal"
         android:weightSum="2"
         >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="0.6"
-            android:layout_height="wrap_content"
-            android:text="First Name"
-            android:textSize="12dp"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif-black"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/firstname"
-            android:gravity="end"
-            android:layout_width="0dp"
-            android:layout_weight="1.4"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="12dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="0.6"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/firstname"
+        android:gravity="end"
+        android:layout_width="0dp"
+        android:layout_weight="1.4"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
 
     </LinearLayout>
-    <LinearLayout
+<LinearLayout
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
         >
-        <TextView
+    <TextView
 
-            android:layout_width="0dp"
-            android:layout_weight="0.6"
-            android:layout_height="wrap_content"
-            android:text="Last Name"
-            android:textSize="12dp"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif-black"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/lastname"
-            android:gravity="end"
-            android:layout_width="0dp"
-            android:layout_weight="1.4"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="12dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            />
+        android:layout_width="0dp"
+        android:layout_weight="0.6"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/lastname"
+        android:gravity="end"
+        android:layout_width="0dp"
+        android:layout_weight="1.4"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
 
     </LinearLayout>
 

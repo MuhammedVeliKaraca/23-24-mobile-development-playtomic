@@ -39,8 +39,6 @@ class MatchesFragment : Fragment() {
         val hallList = mutableListOf<SportsHall>() // Populate this list from Firebase onDataChange
 
 
-
-
         FirebaseDatabase.getInstance().getReference().child("Halls")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -64,11 +62,9 @@ class MatchesFragment : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                   
                 }
             })
-
-
 
 
         return view

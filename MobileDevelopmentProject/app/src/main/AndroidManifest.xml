@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Material3.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ui.fields.FieldActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.matches.MatchActivity2"
             android:exported="false" />
         <activity
